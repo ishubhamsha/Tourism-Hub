@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Your Trip Plan</title>
+</head>
+<body>
+    <h1>Transportation Options</h1>
+
+    <!-- Flights Section -->
+    <h3>Flights</h3>
+    <% if (transportOptions && transportOptions.flights && transportOptions.flights.length > 0) { %>
+        <table>
+            <thead>
+                <tr>
+                    <th>Flight</th>
+                    <th>Departure</th>
+                    <th>Arrival</th>
+                    <th>Price (INR)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% transportOptions.flights.forEach(flight => { %>
+                    <tr>
+                        <td><%= flight.flightName %></td>
+                        <td><%= flight.departureAirport %> <br> <%= flight.departureTime %></td>
+                        <td><%= flight.arrivalAirport %> <br> <%= flight.arrivalTime %></td>
+                        <td><%= flight.price %></td>
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    <% } else { %>
+        <p>No flights available.</p>
+    <% } %>
+
+    <!-- Trains Section -->
+    <h3>Trains</h3>
+    <% if (transportOptions && transportOptions.trains && transportOptions.trains.length > 0) { %>
+        <table>
+            <thead>
+                <tr>
+                    <th>Train</th>
+                    <th>Departure</th>
+                    <th>Arrival</th>
+                    <th>Price (INR)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% transportOptions.trains.forEach(train => { %>
+                    <tr>
+                        <td><%= train.trainName %></td>
+                        <td><%= train.departureStation %> <br> <%= train.departureTime %></td>
+                        <td><%= train.arrivalStation %> <br> <%= train.arrivalTime %></td>
+                        <td><%= train.price %></td>
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    <% } else { %>
+        <p>No trains available.</p>
+    <% } %>
+
+    <!-- Buses Section -->
+    <h3>Buses</h3>
+    <% if (transportOptions && transportOptions.buses && transportOptions.buses.length > 0) { %>
+        <table>
+            <thead>
+                <tr>
+                    <th>Bus</th>
+                    <th>Departure</th>
+                    <th>Arrival</th>
+                    <th>Price (INR)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% transportOptions.buses.forEach(bus => { %>
+                    <tr>
+                        <td><%= bus.busName %></td>
+                        <td><%= bus.departurePoint %> <br> <%= bus.departureTime %></td>
+                        <td><%= bus.arrivalPoint %> <br> <%= bus.arrivalTime %></td>
+                        <td><%= bus.price %></td>
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    <% } else { %>
+        <p>No buses available.</p>
+    <% } %>
+
+</body>
+</html>

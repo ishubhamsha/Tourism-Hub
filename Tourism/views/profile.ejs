@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+</head>
+<body>
+    <h2>Your Saved Trips</h2>
+
+    <% if (trips.length > 0) { %>
+        <ul>
+            <% trips.forEach(trip => { %>
+                <li>
+                    <strong>Total Budget:</strong> <%= trip.totalBudget %><br>
+                    <strong>Trip Days:</strong> <%= trip.tripDays %><br>
+                    <strong>Daily Budget:</strong> <%= trip.dailyBudget %><br>
+                    <strong>Itinerary:</strong>
+                    <ul>
+                        <% trip.itinerary.forEach(day => { %>
+                            <li><%= day.day %>: <%= day.activity %></li>
+                        <% }) %>
+                    </ul>
+                </li>
+            <% }) %>
+        </ul>
+    <% } else { %>
+        <p>No saved trips yet.</p>
+    <% } %>
+    
+    
+</body>
+</html>
